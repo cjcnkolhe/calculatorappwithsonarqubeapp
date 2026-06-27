@@ -3,18 +3,13 @@ package com;
 public class Test {
 	  public static void main(String[] args) {
 
+        Calculator calc = new Calculator();
 
-
-        Calculator c = new Calculator();
-
-
-
-        System.out.println("Add: " + c.add(10, 5));
-
-        System.out.println("Multiply: " + c.multiply(10, 5));
-
-        System.out.println("Divide: " + c.divide(10, 0)); // ❌ Runtime crash (bug)
-
+        System.out.println("Add: " + calc.add(10, 5));
+        System.out.println("Multiply: " + calc.multiply(10, 5));
+        System.out.println("Divide: " + calc.divide(10, 5));
+        System.out.println("Modulus: " + calc.modulus(10, 5));
+        System.out.println("Process: " + calc.process(10, 5));
     }
 
 }
