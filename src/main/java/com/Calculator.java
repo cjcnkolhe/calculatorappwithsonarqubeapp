@@ -12,7 +12,7 @@ public class Calculator {
         return a % b;
     }
 
-    // ❌ DUPLICATE LOGIC (same as multiply2)
+    // ❌ DUPLICATE LOGIC
     public int multiply(int a, int b) {
         return a * b;
     }
@@ -21,7 +21,7 @@ public class Calculator {
         return a * b;
     }
 
-    // ❌ DUPLICATE LOGIC AGAIN
+    // ❌ DUPLICATE LOGIC
     public int add(int a, int b) {
         return a + b;
     }
@@ -38,7 +38,7 @@ public class Calculator {
         return a + b;
     }
 
-    // ❌ BAD DESIGN: Overly complex method with deep nesting
+    // ❌ BAD DESIGN: deep nesting + unused variable
     public int complexCalculation(int a, int b) {
 
         int temp1 = a + b;
@@ -62,12 +62,12 @@ public class Calculator {
         return 0;
     }
 
-    // ❌ BUG: Still unsafe division
+    // ❌ BUG: unsafe division
     public int unsafeDivide(int a, int b) {
         return a / b;
     }
 
-    // ❌ DEAD CODE (never used)
+    // ❌ DEAD CODE (never used in real flow)
     private void unusedMethod() {
         System.out.println("This method is never used anywhere");
     }
@@ -77,13 +77,13 @@ public class Calculator {
         return x + y * 2;
     }
 
-    // ❌ HARD TO READ + MAGIC NUMBER
+    // ❌ MAGIC NUMBER + unclear logic
     public int process(int a, int b) {
         int result = a + b * 10 - 5;
         return result;
     }
 
-    // ❌ ANOTHER DUPLICATE
+    // ❌ ANOTHER DUPLICATE METHOD
     public int addition(int a, int b) {
         return a + b;
     }
