@@ -8,6 +8,7 @@ pipeline {
 
     environment {
         SONAR_TOKEN = credentials('sonar-token')
+        SONAR_URL = 'http://16.16.66.177:9000'
     }
 
     stages {
@@ -27,10 +28,11 @@ pipeline {
         stage('SonarQube Code Analysis') {
             steps {
                 sh '''
+                  
                     mvn org.sonarsource.scanner.maven:sonar-maven-plugin:5.8.0.7211:sonar \
                         -Dsonar.projectKey=my-project \
                         -Dsonar.projectName=my-project \
-                        -Dsonar.host.url=http://16.16.66.177:9000 \
+                        -Dsonar.host.url=$SONAR_URL \
                         -Dsonar.token=$SONAR_TOKEN
                 '''
             }
