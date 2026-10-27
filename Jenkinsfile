@@ -8,7 +8,7 @@ pipeline {
 
     environment {
         SONAR_TOKEN = credentials('sonar-token')
-        SONAR_URL = 'http://16.16.66.177:9000'
+        SONAR_URL = 'http://51.20.127.31:9000'
     }
 
     stages {
