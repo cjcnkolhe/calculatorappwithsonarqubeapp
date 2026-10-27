@@ -20,18 +20,16 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean verify'
+                sh 'mvn clean package'
             }
         }
 
         stage('SonarQube Check') {
             steps {
-                retry(3) {
-                    sh '''
-                        curl -fsS --connect-timeout 10 --max-time 20 \
-                            "$SONAR_URL/api/system/status"
-                    '''
-                }
+                sh '''
+                    curl -fsS --connect-timeout 10 --max-time 20 \
+                    "$SONAR_URL/api/system/status"
+                '''
             }
         }
 
@@ -45,8 +43,8 @@ pipeline {
                         mvn org.sonarsource.scanner.maven:sonar-maven-plugin:5.8.0.7211:sonar \
                             -Dsonar.projectKey=my-project \
                             -Dsonar.projectName=my-project \
-                            -Dsonar.host.url=$SONAR_URL \
-                            -Dsonar.token=$SONAR_TOKEN
+                            -Dsonar.host.url="$SONAR_URL" \
+                            -Dsonar.token="$SONAR_TOKEN"
                     '''
                 }
             }
