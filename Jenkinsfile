@@ -7,7 +7,7 @@ pipeline {
     }
 
     environment {
-        SONAR_HOST_URL = 'http://16.16.66.177:9000'
+        SONAR_HOST_URL = 'http://51.20.127.31:9000'
         SONAR_PROJECT_KEY = 'my-project'
     }
 
