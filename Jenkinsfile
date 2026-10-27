@@ -14,7 +14,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'master',
-                    url: 'https://github.com/cjcnkolhe/calculatorappwithsonarqubeapp.git'
+                    url: 'https://github.com/cjcnkolhe/sonarproject.git'
             }
         }
 
@@ -27,7 +27,7 @@ pipeline {
         stage('SonarQube Code Analysis') {
             steps {
                 sh '''
-                    mvn sonar:sonar \
+                    mvn org.sonarsource.scanner.maven:sonar-maven-plugin:5.8.0.7211:sonar \
                         -Dsonar.projectKey=my-project \
                         -Dsonar.projectName=my-project \
                         -Dsonar.host.url=http://16.16.66.177:9000 \
