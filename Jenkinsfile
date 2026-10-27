@@ -14,7 +14,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'master',
-                    url: 'https://github.com/cjcnkolhe/sonarproject.git'
+                    url: 'https://github.com/cjcnkolhe/calculatorappwithsonarqubeapp.git'
             }
         }
 
