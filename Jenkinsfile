@@ -8,7 +8,6 @@ pipeline {
 
     environment {
         SONAR_URL = 'http://51.20.127.31:9000'
-        SONAR_TOKEN = credentials('sonar-token')
     }
 
     stages {
@@ -38,7 +37,10 @@ pipeline {
 
         stage('SonarQube Analysis') {
             steps {
-                retry(3) {
+                withCredentials([string(
+                    credentialsId: 'sonar-token',
+                    variable: 'SONAR_TOKEN'
+                )]) {
                     sh '''
                         mvn org.sonarsource.scanner.maven:sonar-maven-plugin:5.8.0.7211:sonar \
                             -Dsonar.projectKey=my-project \
