@@ -22,18 +22,17 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
-
+  
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv('SonarQube') {
-                    sh """
+                    sh '''
                     mvn sonar:sonar \
                     -Dsonar.projectKey=java-app \
+                    -Dsonar.projectName=my-project \
                     -Dsonar.host.url=http://65.0.185.90:9000/ \
                     -Dsonar.login=$SONAR_TOKEN
-                    """
+                    '''
                 }
             }
-        }
     }
 }
